@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://pbs.twimg.com/profile_images/976426339086446592/ELS6RxOM_400x400.jpg">
+
+    <title>SLIATE</title>
+
+    <!-- Vendors Style-->
+    <link rel="stylesheet" href="backend/css/vendors_css.css">
+
+    <!-- Style-->
+    <link rel="stylesheet" href="backend/css/style.css">
+    <link rel="stylesheet" href="backend/css/skin_color.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+</head>
+
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+
+    <div class="wrapper">
+
+        <header class="main-header">
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top pl-30">
+                <!-- Sidebar toggle button-->
+                <div>
+                    <ul class="nav">
+                        <li class="btn-group nav-item">
+                            <a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon"
+                                data-toggle="push-menu" role="button">
+                                <i class="nav-link-icon mdi mdi-menu"></i>
+                            </a>
+                        </li>
+                        <li class="btn-group nav-item">
+                            <a href="#" data-provide="fullscreen"
+                                class="waves-effect waves-light nav-link rounded svg-bt-icon" title="Full Screen">
+                                <i class="nav-link-icon mdi mdi-crop-free"></i>
+                            </a>
+                        </li>
+                        <li class="btn-group nav-item d-none d-xl-inline-block">
+                            <a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
+                                <i class="ti-check-box"></i>
+                            </a>
+                        </li>
+                        <li class="btn-group nav-item d-none d-xl-inline-block">
+                            <a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
+                                <i class="ti-calendar"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="navbar-custom-menu r-side">
+                    <ul class="nav navbar-nav">
+                        <!-- User Account-->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="waves-effect waves-light rounded dropdown-toggle p-0"
+                                data-toggle="dropdown" title="User">
+                                <img src="backend/images/avatar/user_icon.png" alt="">
+                            </a>
+                            <ul class="dropdown-menu animated flipInX">
+                                <li class="user-body">
+                                    <a class="dropdown-item" href="#"><i class="ti-user text-muted mr-2"></i>
+                                        <?php echo $_SESSION['user'] ?>
+                                    </a>
+                                    <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i>
+                                        Settings</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="logout.php"><i class="ti-lock text-muted mr-2"></i>
+                                        Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="control-sidebar" title="Setting" class="waves-effect waves-light">
+                                <i class="ti-settings"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar-->
+            <section class="sidebar">
+
+                <div class="user-profile">
+                    <div class="ulogo">
+                        <a href="dashboard.php">
+                            <!-- logo for regular state and mobile devices -->
+                            <div class="d-flex align-items-center justify-content-center">
+                                <h3 style="color: #9965f3"><b style="color: #6990f5">SLIATE</b> HND</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- sidebar menu-->
+                <ul class="sidebar-menu" data-widget="tree">
+
+                    <li>
+                        <a href="dashboard.php">
+                            <i data-feather="pie-chart"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="add_class.php">
+                            <i data-feather="message-circle"></i>
+                            <span>Add Course</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="add_task.php">
+                            <i data-feather="mail"></i>
+                            <span>Add Task</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </section>
+
+            <div class="sidebar-footer">
+                <!-- item-->
+                <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings"
+                    aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
+                <!-- item-->
+                <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i
+                        class="ti-email"></i></a>
+                <!-- item-->
+                <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
+                        class="ti-lock"></i></a>
+            </div>
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <div class="container-full">
+
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
+                    <div class="d-flex align-items-center">
+                        <div class="mr-auto">
+                            <h3 class="page-title">Task</h3>
+                            <div class="d-inline-block align-items-center">
+                                <nav>
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a>
+                                        </li>
+                                        <li class="breadcrumb-item" aria-current="page">Task</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Create task
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h4 class="box-title align-items-start flex-column">
+                                        New Task
+                                        <small class="subtitle">Creating a new worksheet/assesment/homework to a
+                                            particular
+                                            batch</small>
+                                    </h4>
+                                </div>
+                                <div class="box-body">
+                                    <form method="post" action="add_task.php">
+                                        <div class="row">
+                                            <div class="col-md-3 col-12">
+                                                <div class="form-group">
+                                                    <label class="text-warning">Course</label>
+                                                    <select class="form-control select2" style="width: 100%;"
+                                                        name="course_id">
+                                                        <option selected="selected">Select course</option>
+                                                        <?php while($record = mysqli_fetch_assoc($result)) { ?>
+                                                        <option value='<?php echo $record["code"]; ?>'>
+                                                            <?php echo $record['code']; ?>
+                                                        </option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                                <!-- /.form-group -->
+                                            </div>
+                                            <div class="col-md-9 col-12">
+                                                <div class="form-group">
+                                                    <label class="text-warning">Title</label>
+                                                    <input name="task_title" type="text"
+                                                        class="form-control pl-15 bg-light"
+                                                        style="border-color: whitesmoke"
+                                                        placeholder="example: Assignment 1" required>
+                                                </div>
+                                                <!-- /.form-group -->
+                                            </div>
+
+                                        </div>
+                                        <textarea id="editor1" name="task_content" rows="10" cols="80">
+												Enter your text here.
+										</textarea>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- /.content -->
+            </div>
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="pull-right d-none d-sm-inline-block">
+                <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/chamarasab">developed by, Chamara Ekanayake</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+
+    </div>
+    <!-- ./wrapper -->
+
+
+    <!-- Vendor JS -->
+    <script src="backend/js/vendors.min.js"></script>
+    <script src="assets/icons/feather-icons/feather.min.js"></script>
+    <script src="assets/vendor_components/easypiechart/dist/jquery.easypiechart.js"></script>
+    <script src="assets/vendor_components/apexcharts-bundle/irregular-data-series.js"></script>
+    <script src="assets/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script>
+
+    <script src="assets/icons/feather-icons/feather.min.js"></script>
+    <script src="assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script src="assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+    <script src="assets/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="assets/vendor_components/select2/dist/js/select2.full.js"></script>
+    <script src="assets/vendor_plugins/input-mask/jquery.inputmask.js"></script>
+    <script src="assets/vendor_plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+    <script src="assets/vendor_plugins/input-mask/jquery.inputmask.extensions.js"></script>
+    <script src="assets/vendor_components/moment/min/moment.min.js"></script>
+    <script src="assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="assets/vendor_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="assets/vendor_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+    <script src="assets/vendor_plugins/timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="assets/vendor_plugins/iCheck/icheck.min.js"></script>
+    <script src="backend/js/pages/advanced-form-element.js"></script>
+
+    <!-- Sunny Admin App -->
+    <script src="backend/js/template.js"></script>
+    <script src="backend/js/pages/dashboard.js"></script>
+    <script src="backend/js/pages/editor.js"></script>
+    <script src="assets/vendor_components/ckeditor/ckeditor.js"></script>
+    <script src="assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        var message = '<?php echo $_SESSION["message"] ?>';
+
+        switch (message) {
+            case 'empty_inputs':
+                toastr.warning("Please enter required fields!");
+                break;
+
+            case 'welcome':
+                toastr.info("You're going to create a new task");
+                break;
+
+            case 'insert_success':
+                toastr.success("New task added successfully");
+                break;
+
+            case 'select_empty':
+                toastr.error("Please select a course");
+                break;
+            case 'insert_error':
+                toastr.error("Oops something went wrong");
+                break;
+            case 'connection_failed':
+                toastr.error("Oops database connection failed");
+                break;
+            default:
+                toastr.success(message);
+        }
+
+    </script>
+</body>
+
+</html>

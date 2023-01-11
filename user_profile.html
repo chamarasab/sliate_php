@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://pbs.twimg.com/profile_images/976426339086446592/ELS6RxOM_400x400.jpg">
+
+    <title>SLIATE</title>
+
+    <!-- Vendors Style-->
+    <link rel="stylesheet" href="backend/css/vendors_css.css">
+
+    <!-- Style-->
+    <link rel="stylesheet" href="backend/css/style.css">
+    <link rel="stylesheet" href="backend/css/skin_color.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+</head>
+
+<body class="hold-transition dark-skin sidebar-mini theme-warning fixed">
+
+<div class="wrapper">
+
+    <header class="main-header">
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top pl-30">
+            <!-- Sidebar toggle button-->
+            <div>
+                <ul class="nav">
+                    <li class="btn-group nav-item">
+                        <a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon"
+                           data-toggle="push-menu" role="button">
+                            <i class="nav-link-icon mdi mdi-menu"></i>
+                        </a>
+                    </li>
+                    <li class="btn-group nav-item">
+                        <a href="#" data-provide="fullscreen"
+                           class="waves-effect waves-light nav-link rounded svg-bt-icon" title="Full Screen">
+                            <i class="nav-link-icon mdi mdi-crop-free"></i>
+                        </a>
+                    </li>
+                    <li class="btn-group nav-item d-none d-xl-inline-block">
+                        <a href="" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
+                            <i class="ti-check-box"></i>
+                        </a>
+                    </li>
+                    <li class="btn-group nav-item d-none d-xl-inline-block">
+                        <a href="" class="waves-effect waves-light nav-link rounded svg-bt-icon"
+                           title="">
+                            <i class="ti-calendar"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-custom-menu r-side">
+                <ul class="nav navbar-nav">
+                
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="waves-effect waves-light rounded dropdown-toggle p-0"
+                           data-toggle="dropdown" title="User">
+                            <img src='backend/images/avatar/user_icon.png' alt="">
+                        </a>
+                        <ul class="dropdown-menu animated flipInX">
+                            <li class="user-body">
+                                <a class="dropdown-item" href="#"><i class="ti-user text-muted mr-2"></i>
+                                    <?php echo $_SESSION['user'] ?></a>
+                                <!--<a class="dropdown-item" href="#"><i class="ti-wallet text-muted mr-2"></i> My
+                                    Wallet</a>-->
+                                <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i>
+                                    Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="logout.php"><i class="ti-lock text-muted mr-2"></i>
+                                    Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="control-sidebar" title="Setting" class="waves-effect waves-light">
+                            <i class="ti-settings"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar-->
+        <section class="sidebar">
+
+            <div class="user-profile">
+                <div class="ulogo">
+                    <a href="dashboard.php">
+                        <!-- logo for regular state and mobile devices -->
+                        <div class="d-flex align-items-center justify-content-center">
+                            <!--<img src="backend/images/ditlogo.png" alt="" style="height: 50px">-->
+                            <h3 style="color: #9965f3"><b style="color: #6990f5">SLIATE</b> HND</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- sidebar menu-->
+            <ul class="sidebar-menu" data-widget="tree">
+
+                <li>
+                    <a href="">
+                        <i data-feather="pie-chart"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i data-feather="message-circle"></i>
+                        <span>Add Course</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i data-feather="mail"></i>
+                        <span>Add Task</span>
+                    </a>
+                </li>
+
+            </ul>
+        </section>
+
+        <div class="sidebar-footer">
+            <!-- item-->
+            <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings"
+               aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
+            <!-- item-->
+            <a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i
+                    class="ti-email"></i></a>
+            <!-- item-->
+            <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
+                    class="ti-lock"></i></a>
+        </div>
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Content Header (Page header) -->
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="box box-widget widget-user">
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class="widget-user-header bg-black">
+                                <h3 class="widget-user-username"><?php echo $record['name'] ?></h3>
+
+                                <h6 class="widget-user-desc"><?php echo $record['email'] ?></h6>
+                            </div>
+                            <div class="widget-user-image">
+                                <img class="rounded-circle p-2"
+                                     src="https://img.icons8.com/color/240/000000/saitama.png"
+                                     alt="User Avatar">
+                            </div>
+                            <div class="box-footer">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="description-block">
+                                            <h5 class="description-header">Mobile No</h5>
+                                            <span class="description-text"><?php echo $record['mobile'] ?></span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4 br-1 bl-1">
+                                        <div class="description-block">
+                                            <h5 class="description-header">Address</h5>
+                                            <span class="description-text"><?php echo $record['address'] ?></span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4">
+                                        <div class="description-block">
+                                            <h5 class="description-header">Registration Number</h5>
+                                            <span class="description-text"><?php echo $record['reg_no'] ?></span>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+            <section class="content">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h4 class="box-title align-items-start flex-column">
+                                    Details
+                                    <small class="subtitle">Update your information below</small>
+                                </h4>
+                            </div>
+                            <div class="box-body">
+
+                                <form action="profile.php" method="post">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>Mobile</label>
+                                                <input type="tel" name="mobile" class="form-control"
+                                                       placeholder="<?php echo $record['mobile'] ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <input type="text" name="address" class="form-control"
+                                                       placeholder="<?php echo $record['address'] ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>Gender</label>
+                                                <input type="text" name="gender" class="form-control"
+                                                       placeholder="<?php echo $record['gender'] ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>Date of birth</label>
+                                                <input type="date" name="dob" class="form-control"
+                                                       value="<?php echo $record['dob'] ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-footer text-center">
+                                        <button type="submit" class="btn btn-rounded btn-info ">Update Details</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <div class="pull-right d-none d-sm-inline-block">
+            <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/chamarasab">developed by, Chamara Ekanayake</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+
+</div>
+<!-- ./wrapper -->
+
+
+<!-- Vendor JS -->
+<script src="backend/js/vendors.min.js"></script>
+<script src="assets/icons/feather-icons/feather.min.js"></script>
+<script src="assets/vendor_components/easypiechart/dist/jquery.easypiechart.js"></script>
+<script src="assets/vendor_components/apexcharts-bundle/irregular-data-series.js"></script>
+<script src="assets/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script>
+
+<!-- Sunny Admin App -->
+<script src="backend/js/template.js"></script>
+<script src="backend/js/pages/dashboard.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+    var message = '<?php echo $_SESSION["message"] ?>';
+
+    switch (message) {
+        case 'empty_inputs':
+            toastr.warning("Please enter required fields!");
+            break;
+
+        case 'welcome':
+            toastr.info("Hello... Complete your profile");
+            break;
+
+        case 'update_success':
+            toastr.success("Profile completion success");
+            break;
+
+        case 'incomplete_profile':
+            toastr.warning(" Complete your profile ");
+            break;
+        case 'update_error':
+            toastr.error("Update error occurred");
+            break;
+        default:
+            toastr.success(message);
+    }
+
+</script>
+
+</body>
+
+</html>

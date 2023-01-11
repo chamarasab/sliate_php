@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://pbs.twimg.com/profile_images/976426339086446592/ELS6RxOM_400x400.jpg">
+
+    <title>SLIATE</title>
+
+    <!-- Vendors Style-->
+    <link rel="stylesheet" href="backend/css/vendors_css.css">
+
+    <!-- Style-->
+    <link rel="stylesheet" href="backend/css/style.css">
+    <link rel="stylesheet" href="backend/css/skin_color.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+
+</head>
+<body class="hold-transition theme-primary bg-gradient-primary">
+
+<div class="container h-p100">
+    <div class="row align-items-center justify-content-md-center h-p100">
+
+        <div class="col-12">
+            <div class="row justify-content-center no-gutters">
+                <div class="col-lg-4 col-md-5 col-12">
+                    <div class="content-top-agile p-10">
+                        <img src="backend/images/avatar/avatar-1.png" alt="User Image"
+                             class="rounded-circle bg-brick-dark">
+                        <h3 class="mb-0 text-white"><?php echo $student["name"]; ?></h3>
+                    </div>
+                    <div class="p-30 rounded30 box-shadowed b-2 b-dashed">
+                        <form action="update_status.php" method="post">
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-transparent text-white"><i
+                                                class="ti-blackboard"></i></span>
+                                    </div>
+
+                                    <select class="form-control select2"
+                                            name="course_id">
+                                        <option selected="selected">Select course</option>
+                                        <?php while($record = mysqli_fetch_assoc($course_codes)) { ?>
+                                        <option value='<?php echo $record["code"]; ?>'> <?php echo $record['code']; ?> </option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-info btn-rounded mt-10">Enroll Student</button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                        <div class="text-center text-white">
+                            <p class="mt-20">- Tip -</p>
+                            <p class="mb-5">
+                                Student registration number will be automatically generated according to the <span
+                                    class="text-warning"> course-code </span> and <span
+                                    class="text-warning">user-id</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Vendor JS -->
+<script src="backend/js/vendors.min.js"></script>
+<script src="assets/icons/feather-icons/feather.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+    var message = '<?php echo $_SESSION["message"] ?>';
+
+    switch (message) {
+        case 'empty_inputs':
+            toastr.warning("Please select a course");
+            break;
+
+        case 'select_empty':
+            toastr.warning("Please select a course");
+            break;
+
+        case 'welcome':
+            toastr.info("You're going to enroll a new student");
+            break;
+
+        case 'update_success':
+            toastr.success("Student enrolled successfully");
+            break;
+
+        case 'update_error':
+            toastr.error("Oops something went wrong");
+            break;
+
+        case 'connection_failed':
+            toastr.error("Oops database connection failed");
+            break;
+
+        default:
+            toastr.success(message);
+    }
+
+</script>
+
+</body>
+</html>
